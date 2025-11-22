@@ -328,6 +328,106 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-16 px-4 bg-secondary/20">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">Отзывы наших пациентов</h2>
+            <p className="text-muted-foreground text-lg">Более 5000 довольных пациентов за 10 лет работы</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[
+              {
+                name: "Анна Соколова",
+                date: "2 недели назад",
+                rating: 5,
+                text: "Отличная клиника! Врачи профессионалы своего дела. Особенно хочу отметить внимательное отношение и качественную консультацию. Все объяснили, показали снимки, составили план лечения. Цены адекватные, никаких скрытых платежей.",
+                service: "Консультация и лечение кариеса"
+              },
+              {
+                name: "Дмитрий Волков",
+                date: "1 месяц назад",
+                rating: 5,
+                text: "Записался на бесплатную консультацию, не ожидал такого профессионализма. Врач провел полный осмотр, сделали панорамный снимок, все подробно рассказали. Современное оборудование и приятная атмосфера. Рекомендую!",
+                service: "Первичная консультация"
+              },
+              {
+                name: "Мария Кузнецова",
+                date: "3 недели назад",
+                rating: 5,
+                text: "Очень боялась идти к стоматологу, но здесь все прошло комфортно. На консультации врач успокоил, все объяснил понятным языком. Лечение прошло безболезненно. Спасибо огромное всей команде клиники!",
+                service: "Консультация и протезирование"
+              },
+              {
+                name: "Игорь Петров",
+                date: "2 месяца назад",
+                rating: 5,
+                text: "Обратился с острой болью. Приняли в день обращения, сделали диагностику и сразу начали лечение. Врач Иванова Е.С. - настоящий профессионал! Боль прошла, теперь на постоянном обслуживании в этой клинике.",
+                service: "Срочная консультация и лечение"
+              },
+              {
+                name: "Светлана Морозова",
+                date: "1 неделя назад",
+                rating: 5,
+                text: "Хожу в эту клинику всей семьей уже 3 года. Всегда качественное обслуживание, современное оборудование и приятные цены. На консультации всегда подробно рассказывают о состоянии зубов и вариантах лечения.",
+                service: "Семейная консультация"
+              },
+              {
+                name: "Алексей Новиков",
+                date: "3 дня назад",
+                rating: 5,
+                text: "Пришел на диагностику перед имплантацией. Сделали КТ, провели детальный осмотр, составили план лечения с учетом моих пожеланий. Все четко, профессионально и без навязывания лишних услуг. Очень доволен!",
+                service: "Консультация по имплантации"
+              }
+            ].map((review, index) => (
+              <Card key={index} className="bg-white hover:shadow-xl transition-all border-0">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h4 className="font-bold text-lg">{review.name}</h4>
+                      <p className="text-sm text-muted-foreground">{review.date}</p>
+                    </div>
+                    <div className="flex gap-1">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Icon key={i} name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    {review.text}
+                  </p>
+                  <Badge variant="secondary" className="text-xs">
+                    {review.service}
+                  </Badge>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <div className="inline-flex items-center gap-8 bg-white rounded-2xl px-8 py-6 shadow-lg">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-primary mb-1">4.9</div>
+                <div className="flex gap-1 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Icon key={i} name="Star" size={20} className="text-yellow-500 fill-yellow-500" />
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground">Средний рейтинг</p>
+              </div>
+              <div className="w-px h-16 bg-border"></div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-primary mb-1">5000+</div>
+                <p className="text-sm text-muted-foreground">Довольных пациентов</p>
+              </div>
+              <div className="w-px h-16 bg-border"></div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-primary mb-1">10</div>
+                <p className="text-sm text-muted-foreground">Лет на рынке</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 px-4 bg-gradient-to-br from-primary to-accent text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
